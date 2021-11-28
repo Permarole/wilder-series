@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-{% block stylesheets %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{% block stylesheets %}
 
-{{ encore_entry_link_tags("app") }}
+			{{ encore_entry_link_tags("app") }}
 
-{% endblock %}
+		{% endblock %}
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+	</head>
+	<body class="bg-secondary text-white">
+		<header>{% include "_navbar.html.twig" %}</header>
+		<section class="container"> {% block body %}{% endblock %}
+			</section>
+			{% block javascripts %}
 
-<body class="bg-secondary">
-    <header>{% include "_navbar.html.twig" %}</header>
-    {% block content %}{% endblock %}
-</body>
+				{{ encore_entry_script_tags("app") }}
 
-{% block javascripts %}
-
-{{ encore_entry_script_tags("app") }}
-
-{% endblock %}
+			{% endblock %}
+		</body>
+	</html>
