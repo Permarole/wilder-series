@@ -20,6 +20,10 @@
 			<p>Catégorie :
 				{{ program.category.name }}</p>
 
+			<ul>{% for season in seasons %}
+				<li><a href="/program/{programId}/season/{{season.id}}"></a></li>
+			{% endfor %}</ul>
+
 		</div>
 
 	</div>
