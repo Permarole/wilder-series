@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
-{% block title %}All programs
+{% block title %}
+	{{parent()}}
+	- All programs
 {% endblock %}
 {% block body %}
 
-	<section class="container">
+	<section class="container mt-5">
 		<h1 class="my-5">Toutes les séries de la table program :</h1>
 
 		{% for program in programs %}
@@ -20,7 +22,7 @@
 
 				{# Lien vers la fiche de la série : #}
 
-				<a href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
+				<a href="{{ path("program_show", { program: program.id }) }}">Voir la fiche</a>
 
 			</div>
 

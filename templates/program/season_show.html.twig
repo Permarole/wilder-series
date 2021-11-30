@@ -1,16 +1,17 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Série #{{ program.id }}
+{% block title %}
+	{{parent()}}
+	- Série
+	{{ program.title }}
 {% endblock %}
 
 
 {% block body %}
 
-	<section class="container">
+	<section class="container mt-5">
 		<div class="media">
-
-			<img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
 
 			<div class="media-body">
 
@@ -28,7 +29,7 @@
 				<ul>
 					{% for  episode in episodes %}
 						<li>
-							<a href="#{#{{ path(" program_show_season_episode", { programid: program.id, seasonid: season.id, episodeid: episode.id }) }}#}">episode
+							<a href="{{ path("program_show_episode", { program: program.id, season: season.id, episode: episode.id }) }}">episode
 								{{ episode.number }}
 								-
 								{{episode.title}}</a>
@@ -41,9 +42,9 @@
 		</div>
 
 
-		<a href="{{ path('program_index') }}">
+		<a href="{{ path("program_show", { program: program.id }) }}">
 
-			Retour à la liste des programmes
+			Retour au programme
 
 		</a>
 	</section>

@@ -1,10 +1,12 @@
 {% extends "base.html.twig" %}
 
-{% block title %}All categories
+{% block title %}
+	{{parent()}}
+	- All categories
 {% endblock %}
 {% block body %}
 
-	<section class="container">
+	<section class="container mt-5">
 		<h1 class="my-5">Toutes les catégories de la table category :</h1>
 
 		{% for category in categories %}

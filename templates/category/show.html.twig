@@ -1,12 +1,13 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
+	{{parent()}}
+	-
 	{{category.name}}
-	- Programs
 {% endblock %}
 {% block body %}
 
-	<section class="container">
+	<section class="container mt-5">
 		<h1 class="my-5">Toutes les séries de la categorie
 			{{category.name}}
 			:</h1>
@@ -15,7 +16,7 @@
 
 			<div class="mb-5">
 
-				<a href="{{ path("program_show", { id: program.id }) }}">
+				<a href="{{ path("program_show", { program: program.id }) }}">
 					<h2>{{ loop.index }}
 						/
 						{{ program.title }}
