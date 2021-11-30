@@ -19,10 +19,11 @@
 				<h2>{{ season.description }}</h2>
 
 				<p>Cette
-					{{ season.number}}e sortie sur l'année
+					{{ season.number}}e saison sortie sur l'année
 					{{ season.year }}
 					contient
-					{{ season.episodes|length}}</p>
+					{{ season.episodes|length}}
+					episodes.</p>
 
 				<ul>
 					{% for  episode in episodes %}
