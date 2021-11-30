@@ -3,34 +3,34 @@
 {% endblock %}
 {% block body %}
 
+	<section class="container">
+		<h1 class="my-5">Toutes les séries de la table program :</h1>
 
-	<h1 class="my-5">Toutes les séries de la table program :</h1>
+		{% for program in programs %}
 
-	{% for program in programs %}
+			<div class="mb-5">
 
-		<div class="mb-5">
+				<h2>{{ loop.index }}
+					/
+					{{ program.title }}
+					- Catégorie :
+					{{ program.category.name }}</h2>
 
-			<h2>{{ loop.index }}
-				/
-				{{ program.title }}
-				- Catégorie :
-				{{ program.category.name }}</h2>
+				<p>{{ program.summary }}</p>
 
-			<p>{{ program.summary }}</p>
+				{# Lien vers la fiche de la série : #}
 
-			{# Lien vers la fiche de la série : #}
+				<a href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
 
-			<a href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
+			</div>
 
-		</div>
+		{% else %}
+			Aucune série trouvée.
+		{% endfor %}
 
-	{% else %}
-		Aucune série trouvée.
-	{% endfor %}
-
-	<a href="{{ path('app_index') }}">
-		Retour à l'accueil
-	</a>
-
+		<a href="{{ path('app_index') }}">
+			Retour à l'accueil
+		</a>
+	</section>
 
 {% endblock %}
